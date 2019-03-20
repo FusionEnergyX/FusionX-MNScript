@@ -37,7 +37,7 @@ cd
 # find our public ip
 primaryip="$(ip route get 1 | awk '{print $NF;exit}')"
 echo "paste the masternode privkey (output from 'masternode genkey') and press enter"
-read masternodeprivkey
+read -e masternodeprivkey
 
 # write our masternode's .fusion/fusion.conf
 mkdir .fusion
@@ -45,7 +45,7 @@ echo listen=1 > .fusion/fusion.conf
 echo server=1 >> .fusion/fusion.conf
 echo daemon=1 >> .fusion/fusion.conf
 echo staking=0 >> .fusion/fusion.conf
-echo rpcuser=testuser > .fusion/fusion.conf
+echo rpcuser=testuser >> .fusion/fusion.conf
 echo rpcpassword=testpassword >> .fusion/fusion.conf
 echo rpcallowip=127.0.0.1 >> .fusion/fusion.conf
 echo rpcbind=127.0.0.1 >> .fusion/fusion.conf
